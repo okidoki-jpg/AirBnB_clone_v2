@@ -129,21 +129,22 @@ class HBNBCommand(cmd.Cmd):
 
         # create new instance
         new_instance = HBNBCommand.classes[class_]()
-        storage.save()
-        print(new_instance.id)
 
         # update instance with name & val args if available
         if args[2]:
             for param in args[2].split():
                 try:
                     name, val = param.split("=")
-                    val = val.repalce("_", " ")
+                    if not all([name, val]):
+                        continue
+                    val = val.replace("_", " ").replace('\\"', '"')
                     cmd = f"{class_} {new_instance.id} {name} {val}"
                     self.do_update(cmd)
                 except Exception as e:
                     pass
 
         storage.save()
+        print(new_instance.id)
 
     def help_create(self):
         """ Help information for the create method """
