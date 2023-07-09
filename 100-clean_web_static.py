@@ -83,8 +83,8 @@ def do_deploy(archive_path):
 
 def deploy():
     """
-	Create and distribute the web_static archive
-	"""
+    Create and distribute the web_static archive
+    """
 
     archive_path = do_pack()
     if not archive_path:
@@ -94,17 +94,20 @@ def deploy():
 
 
 def do_clean(number=0):
-    ""
-	"Deletes out-of-date archives
-	"""
+    """
+    Deletes out-of-date archives
+    """
 
     number = int(number)
-    
-    if number in [0,1]:
+
+    if number < 0:
+        return
+
+    if number in [0, 1]:
         number = 1
     else:
         number += 1
-    
+
     with lcd("versions"):
         local(f"ls -1t | tail -n +{numbet} | xargs rm -rf")
 
