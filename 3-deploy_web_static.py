@@ -83,8 +83,8 @@ def do_deploy(archive_path):
 
 def deploy():
     """
-	Create and distribute the web_static archive
-	"""
+    Create and distribute the web_static archive
+    """
 
     archive_path = do_pack()
     if not archive_path:
