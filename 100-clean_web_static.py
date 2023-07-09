@@ -4,7 +4,7 @@ Fabric script to create and distribute an archive to web servers
 """
 
 
-from fabric.api import local, env, put, run, sudo
+from fabric.api import *
 from datetime import datetime
 import os
 
