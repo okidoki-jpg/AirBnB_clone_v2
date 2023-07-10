@@ -77,7 +77,7 @@ def do_deploy(archive_path):
         sudo("chown -R ubuntu:ubuntu /data/")
         sudo("chmod -R 755 /data/")
         sudo("service nginx restart")
-		return True
+        return True
     except Exception:
         return False
 
@@ -101,6 +101,7 @@ def do_clean(number=0):
 
     number = int(number)
 
+    # number of archives to keep
     if number < 0:
         return
 
@@ -109,8 +110,10 @@ def do_clean(number=0):
     else:
         number += 1
 
+    # make changes locally
     with lcd("versions"):
         local(f"ls -1t | tail -n +{number} | xargs rm -rf")
 
+    # make changes virtually
     with cd("/data/web_static/releases"):
         run(f"ls -1t | tail -n +{number} | xargs rm -rf")
