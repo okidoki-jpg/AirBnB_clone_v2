@@ -77,6 +77,7 @@ def do_deploy(archive_path):
         sudo("chown -R ubuntu:ubuntu /data/")
         sudo("chmod -R 755 /data/")
         sudo("service nginx restart")
+		return True
     except Exception:
         return False
 
