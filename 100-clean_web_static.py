@@ -109,7 +109,7 @@ def do_clean(number=0):
         number += 1
 
     with lcd("versions"):
-        local(f"ls -1t | tail -n +{numbet} | xargs rm -rf")
+        local(f"ls -1t | tail -n +{number} | xargs rm -rf")
 
     with cd("/data/web_static/releases"):
         run(f"ls -1t | tail -n +{number} | xargs rm -rf")
