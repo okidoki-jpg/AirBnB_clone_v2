@@ -106,7 +106,7 @@ def do_clean(number=0):
         return
 
     if number in [0, 1]:
-        number = 1
+        number = 2
     else:
         number += 1
 
@@ -116,4 +116,4 @@ def do_clean(number=0):
 
     # make changes virtually
     with cd("/data/web_static/releases"):
-        run(f"ls -1t | tail -n +{number} | xargs rm -rf")
+        run(f"ls -1t web* | tail -n +{number} | xargs rm -rf")
