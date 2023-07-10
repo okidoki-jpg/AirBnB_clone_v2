@@ -116,4 +116,4 @@ def do_clean(number=0):
 
     # make changes virtually
     with cd("/data/web_static/releases"):
-        run(f"ls -1t web* | tail -n +{number} | xargs rm -rf")
+        run(f"ls -1t | tail -n +{number} | xargs rm -rf")
