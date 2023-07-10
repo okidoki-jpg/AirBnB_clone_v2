@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# installing and configuring nginx to test aliases
 
 apt-get -y update
 apt-get -y install nginx
